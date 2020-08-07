@@ -60,26 +60,82 @@ input {
 }
 
 .header {
-  background-color: #ff6600;
+  background: linear-gradient(
+    125deg,
+    #ecfcff 0%,
+    #ecfcff 40%,
+    #b2fcff calc(40% + 1px),
+    #b2fcff 60%,
+    #5edfff calc(60% + 1px),
+    #5edfff 72%,
+    #3e64ff calc(72% + 1px),
+    #3e64ff 100%
+  );
   white-space: nowrap;
   padding: 0.25rem;
   color: black;
   justify-content: space-between;
+  align-items: center;
+  align-content: center;
   display: flex;
+  box-shadow: 4px 4px 14px -3px rgba(0, 0, 0, 0.4);
+  margin-bottom: 30px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 .header-title {
   font-weight: 700;
-  margin-left: 0.25rem;
+  margin-left: 0.7rem;
+  margin-top: 1rem;
   margin-right: 5px;
   color: black;
   text-decoration: none;
 }
 
+.header-logo {
+  width: 100px;
+  height: 50px;
+  margin-left: 20px;
+  background: rgba(0, 0, 0, 0.144);
+  padding: 0 10px;
+  border-radius: 20px;
+}
+
 .header-link {
-  margin-left: 0.2rem;
+  margin-left: 0.7rem;
+  margin-top: 0.9rem;
+  padding: 2px 5px;
   color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 10px;
   text-decoration: none;
+  transition: all 0.5s ease;
+}
+
+.header-link:hover {
+  background-color: #d8e2e7;
+  color: rgb(30, 16, 160);
+}
+
+.header-link-login {
+  margin-left: 0.7rem;
+  margin-top: 0.9rem;
+  padding: 2px 5px;
+  color: black;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  text-decoration: none;
+  transition: all 0.45s ease-in-out;
+}
+
+.header-link-login:hover {
+  background-color: #145377;
+  color: rgb(181, 218, 200);
 }
 
 .header-button {
@@ -95,7 +151,8 @@ input {
 }
 
 .divider {
-  margin-left: 0.25rem;
+  margin-left: 0.7rem;
+  margin-top: 1rem;
   color: black;
 }
 
@@ -120,11 +177,12 @@ textarea {
 }
 
 .route-container {
-  background-color: rgb(246, 246, 239);
+  background-color: #f3f3d2;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .pagination {
@@ -169,4 +227,36 @@ textarea {
   width: 100%;
   margin-bottom: 0.2em;
   max-width: 500px;
+}
+
+/* Login form */
+
+.login-input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.4);
+}
+
+.login-input:active,
+.login-input:focus {
+  background: rgb(122, 122, 131);
+  color: yellow;
+}
+
+.login-button {
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.3);
+  background: rgb(218, 30, 30);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 3px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.login-button:hover {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
