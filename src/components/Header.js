@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import Logo from "./Branding/Logo";
+import { AuthContext } from "../firebase";
 
 function Header() {
+  const { user, firebase } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="header">
       <div className="flex">
@@ -21,15 +24,31 @@ function Header() {
         <NavLink to="/search" className="header-link">
           Search
         </NavLink>
-        <div className="divider">|</div>
-        <NavLink to="/create" className="header-link">
-          Submit
-        </NavLink>
+        {user && (
+          <>
+            <div className="divider">|</div>
+            <NavLink to="/create" className="header-link">
+              Submit
+            </NavLink>
+          </>
+        )}
       </div>
       <div className="flex">
-        <NavLink to="/login" className="header-link-login">
-          Login
-        </NavLink>
+        {user ? (
+          <>
+            <div className="header-name">{user.displayName} |</div>
+            <div
+              className="header-link-login"
+              onClick={() => firebase.logout()}
+            >
+              LogOUT
+            </div>
+          </>
+        ) : (
+          <NavLink to="/login" className="header-link-login">
+            Login
+          </NavLink>
+        )}
       </div>
     </div>
   );
