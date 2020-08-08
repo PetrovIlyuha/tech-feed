@@ -113,6 +113,7 @@ input {
   margin-bottom: 10px;
   text-decoration: none;
   transition: all 0.5s ease;
+  cursor: pointer;
 }
 
 .header-link:hover {
@@ -130,6 +131,7 @@ input {
   border-radius: 10px;
   margin-bottom: 15px;
   text-decoration: none;
+  cursor: pointer;
   transition: all 0.45s ease-in-out;
 }
 
@@ -148,6 +150,8 @@ input {
 .header-name {
   color: black;
   text-decoration: none;
+  margin-top: 1rem;
+  color: yellow;
 }
 
 .divider {
