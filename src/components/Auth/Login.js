@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import useFormValidation from "./useFormValidation";
 import validateLogin from "./validateLogin";
+import firebase from "../../firebase";
+import { Link } from "react-router-dom";
 
 const INITIAL_STATE = {
   name: "",
@@ -16,9 +18,22 @@ function Login(props) {
     isSubmitting,
     values,
     errors,
-  } = useFormValidation(INITIAL_STATE, validateLogin);
+  } = useFormValidation(INITIAL_STATE, validateLogin, authenticateUser);
   const [login, setLogin] = useState(false);
+  const [firebaseError, setFirebaseError] = useState(null);
 
+  async function authenticateUser() {
+    const { name, email, password } = values;
+    try {
+      login
+        ? await firebase.login(email, password)
+        : await firebase.register(name, email, password);
+      props.history.push("/");
+    } catch (err) {
+      console.error("Authentication error");
+      setFirebaseError(err.message);
+    }
+  }
   return (
     <div>
       <h2 className="mv-3">{login ? "Login" : "Create Account"}</h2>
@@ -73,6 +88,7 @@ function Login(props) {
           autoComplete="off"
         />
         {errors.password && <p className="error-text">{errors.password}</p>}
+        {firebaseError && <p className="error-text">{firebaseError}</p>}
         <div className="flex mt3">
           <button type="submit" className="login-button button pointer mr2">
             Submit
@@ -81,12 +97,17 @@ function Login(props) {
             type="button"
             className="pointer button login-button"
             style={{ background: isSubmitting ? "orange" : "" }}
-            onClick={() => setLogin((login) => !login)}
+            onClick={() => {
+              setLogin((login) => !login);
+            }}
           >
             {login ? "Need to create an account" : "Already have an Account?"}
           </button>
         </div>
       </form>
+      <div className="forgot-password">
+        <Link to="/forgot">Forgot Password?</Link>
+      </div>
     </div>
   );
 }
