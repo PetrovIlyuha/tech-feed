@@ -161,7 +161,7 @@ input {
 }
 
 .link {
-  color: #828282;
+  color: #ffffff;
 }
 
 textarea {
@@ -170,10 +170,27 @@ textarea {
 }
 
 .delete-button {
-  color: red;
+  color: white;
+  background: rgb(189, 36, 36);
+  padding: 2px 4px;
+  border-radius: 4px;
   cursor: pointer;
 }
 
+.link-create-time {
+  background: rgba(123, 12, 114, 0.4);
+  padding: 2px 4px;
+  border-radius: 5px;
+  color: white;
+}
+
+.link-container {
+  background: #f36886;
+  color: #3e363f;
+  padding: 14p 8px;
+  box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.45);
+  border-radius: 5px;
+}
 .app-container {
   width: 85%;
   margin-right: auto;
@@ -235,7 +252,7 @@ textarea {
 
 /* Login form */
 
-.login-input {
+.custom-input {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
@@ -243,13 +260,13 @@ textarea {
   box-shadow: 2px 0px 8px rgba(0, 0, 0, 0.4);
 }
 
-.login-input:active,
-.login-input:focus {
+.custom-input:active,
+.custom-input:focus {
   background: rgb(122, 122, 131);
   color: yellow;
 }
 
-.login-button {
+.custom-button {
   padding: 10px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 7px -2px rgba(0, 0, 0, 0.3);
@@ -261,6 +278,6 @@ textarea {
   transition: all 0.2s ease-in-out;
 }
 
-.login-button:hover {
+.custom-button:hover {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 }
