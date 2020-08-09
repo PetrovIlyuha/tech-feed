@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { withRouter, NavLink } from "react-router-dom";
 import Logo from "./Branding/Logo";
-import { AuthContext } from "../firebase";
+import { FirebaseContext } from "../firebase";
 
 function Header() {
-  const { user, firebase } = useContext(AuthContext);
-  console.log(user);
+  const { user, firebase } = useContext(FirebaseContext);
+
   return (
     <div className="header">
       <div className="flex">
@@ -13,7 +13,7 @@ function Header() {
         <NavLink to="/" className="header-title">
           Tech News
         </NavLink>
-        <NavLink to="/" className="header-link">
+        <NavLink to="/create" className="header-link">
           New
         </NavLink>
         <div className="divider">|</div>
