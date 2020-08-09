@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../../firebase";
+import { FirebaseContext } from "../../firebase";
 
 function ForgotPassword() {
-  const { firebase } = useContext(AuthContext);
+  const { firebase } = useContext(FirebaseContext);
   const [resetPasswordEmail, setResetPasswordEmail] = useState("");
   const [isPasswordResetSuccess, setIsPasswordResetSuccess] = useState(false);
   const [passResetErr, setPassResetErr] = useState(null);
@@ -22,7 +22,7 @@ function ForgotPassword() {
       <input
         style={{ marginTop: 20 }}
         type="email"
-        className="login-input"
+        className="custom-input"
         placeholder="Where to send reset link?"
         value={resetPasswordEmail}
         onChange={(e) => setResetPasswordEmail(e.target.value)}
@@ -30,7 +30,7 @@ function ForgotPassword() {
       <div>
         <button
           style={{ marginTop: 20 }}
-          className="button login-button"
+          className="button custom-button"
           onClick={handleResetPassword}
         >
           Reset Password
