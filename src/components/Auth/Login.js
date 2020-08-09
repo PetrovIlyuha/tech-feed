@@ -41,7 +41,7 @@ function Login(props) {
         {!login && (
           <>
             <input
-              className="login-input"
+              className="custom-input"
               onChange={handleChange}
               onBlur={handleBlur}
               value={values.name}
@@ -90,12 +90,12 @@ function Login(props) {
         {errors.password && <p className="error-text">{errors.password}</p>}
         {firebaseError && <p className="error-text">{firebaseError}</p>}
         <div className="flex mt3">
-          <button type="submit" className="login-button button pointer mr2">
+          <button type="submit" className="custom-button button pointer mr2">
             Submit
           </button>
           <button
             type="button"
-            className="pointer button login-button"
+            className="pointer button custom-button"
             style={{ background: isSubmitting ? "orange" : "" }}
             onClick={() => {
               setLogin((login) => !login);
