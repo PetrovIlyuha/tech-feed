@@ -19,7 +19,8 @@ function LinkItem({ link, index, showCount, history }) {
             votedBy: { id: user.uid, name: user.displayName },
           };
           const updatedVotes = [...previousVotes, vote];
-          voteRef.update({ votes: updatedVotes });
+          const voteCount = updatedVotes.length;
+          voteRef.update({ votes: updatedVotes, voteCount });
         }
       });
     }
@@ -46,11 +47,17 @@ function LinkItem({ link, index, showCount, history }) {
           </span>
         </div>
         <div className="ml1">
-          <div>
-            {link.description}{" "}
-            <span className="link">({getDomain(link.url)})</span>
-          </div>
-          <div className="f6 lh-copy link">{link.votes.length} votes</div>
+          <a
+            href={`${link.url}`}
+            to={`${link.url}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div>
+              {link.description}{" "}
+              <span className="link">({getDomain(link.url)})</span>
+            </div>
+          </a>
+          <div className="f6 lh-copy link">{link.voteCount} votes</div>
           <div className="ml5">
             Posted by {link.postedBy.name}{" "}
             <span className="link-create-time">
